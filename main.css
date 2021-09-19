@@ -1,24 +1,33 @@
 body {
   height: 100vh;
-  background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/bg.jpg");
+  background-image: url('https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+/** 선택창 **/
+
 .container {
   padding: 50px 0;
 }
-.heroes {
+
+.developers {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 660px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 40px 20px;
 }
-.hero {
-  width: 80px;
-  height: 84px;
+.developer {
+  width: 100px;
+  height: 110px;
   margin: 4px;
   border: 3px solid #fff;
   border-radius: 10px;
@@ -26,59 +35,149 @@ body {
   overflow: hidden;
   background-color: #555;
   transform: skewX(-14deg);
-  transition:
-    transform .1s,
-    background-color .6s;
+  transition: transform 0.1s, background-color 0.6s;
+  display: flex;
 }
-.hero:hover {
+
+.developer img {
+  width: 100%;
+  transform: skew(14deg);
+}
+
+.developer:hover {
   background-color: #ff9c00;
   transform: skewX(-14deg) scale(1.3);
   z-index: 1;
+  cursor: pointer;
 }
-.hero .image {
-  width: 140%;
-  height: 100%;
-  transform: translateX(-16px) skewX(14deg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 90px;
+
+.developer:active {
+  background-color: #fff;
+  transition: none;
 }
-.hero:nth-child(1) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero1.png"); }
-.hero:nth-child(2) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero2.png"); }
-.hero:nth-child(3) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero3.png"); }
-.hero:nth-child(4) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero4.png"); }
-.hero:nth-child(5) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero5.png"); }
-.hero:nth-child(6) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero6.png"); }
-.hero:nth-child(7) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero7.png"); }
-.hero:nth-child(8) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero8.png"); }
-.hero:nth-child(9) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero9.png"); }
-.hero:nth-child(10) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero10.png"); }
 
-.hero:nth-child(11) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero11.png"); }
-.hero:nth-child(12) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero12.png"); }
-.hero:nth-child(13) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero13.png"); }
-.hero:nth-child(14) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero14.png"); }
-.hero:nth-child(15) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero15.png"); }
-.hero:nth-child(16) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero16.png"); }
-.hero:nth-child(17) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero17.png"); }
-.hero:nth-child(18) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero18.png"); }
-.hero:nth-child(19) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero19.png"); }
-.hero:nth-child(20) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero20.png"); }
+.developer.list.picked {
+  background-color: #fff !important;
+  border: 3px solid #555 !important;
+}
 
-.hero:nth-child(21) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero21.png"); }
-.hero:nth-child(22) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero22.png"); }
-.hero:nth-child(23) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero23.png"); }
-.hero:nth-child(24) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero24.png"); }
-.hero:nth-child(25) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero25.png"); }
-.hero:nth-child(26) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero26.png"); }
-.hero:nth-child(27) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero27.png"); }
-.hero:nth-child(28) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero28.png"); }
-.hero:nth-child(29) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero29.png"); }
-.hero:nth-child(30) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero30.png"); }
+.on {
+  transform: none;
+}
 
-.hero:nth-child(31) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero31.png"); }
-.hero:nth-child(32) .image { background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero32.png"); }
+.on img {
+  transform: none;
+}
 
+.on:hover {
+  transform: scale(1.3);
+}
+
+/** 버튼 **/
+
+.btn-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+}
+
+button.select-btn {
+  margin-top: px;
+  position: absolute;
+  top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Merienda', 'Handlee', cursive;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: rgb(218, 25, 25);
+  padding: 1rem 3.6rem;
+  box-shadow: 0 0.8rem 0.1rem rgb(154, 25, 25);
+  transform-style: preserve-3d;
+  transition: all 100ms cubic-bezier(0, 0, 1, 1);
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+button.select-btn:active {
+  transform: translate(0em, 0.5em);
+  box-shadow: 0 0em 0 0.1rem rgb(154, 25, 25),
+    inset 3px 3px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.btn-section .btn-back {
+  position: absolute;
+  top: 1.7rem;
+  width: 6rem;
+  height: 6rem;
+  padding: 0.1rem 1.6rem;
+  background-color: rgb(212, 212, 212);
+  border-bottom: 0.35rem solid black;
+
+  /* box-shadow: 0 5px rgb(151, 151, 151); */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.btn-back.trans {
+  width: 10rem;
+  height: 12rem;
+  padding: 0;
+  background-color: #555;
+  border: 0px solid black;
+  border-radius: 10px;
+  transition: all 3s;
+  transition-timing-function: ease-out;
+}
+
+/** 조별 **/
+
+.select-wrapper {
+  display: flex;
+  margin-top: 5rem;
+}
+
+.select-wrapper .team {
+  width: 50%;
+}
+
+.select-wrapper .team .team1-host,
+.select-wrapper .team .team2-host {
+  display: flex;
+  justify-content: center;
+}
+
+.select-wrapper .team .host {
+  width: 10rem;
+  height: 12rem;
+  border: 3px solid #eee;
+}
+
+.select-wrapper .team .member {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-wrapper .team .member .developer {
+  margin: 15px;
+}
+
+/** 로고 **/
 .logo {
   max-width: 300px;
   margin: 0 auto;
@@ -87,3 +186,251 @@ body {
 .logo img {
   width: 100%;
 }
+
+/*
+    Auther: Abdelrhman Said
+*/
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+} */
+
+/* .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+.wrapper .icon {
+  position: relative;
+  background-color: #555;
+  border: 3px solid rgb(196, 189, 189);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 0 20px 10px;
+  width: 90px;
+  height: 90px;
+  transform: translateX(-16px) skewX(14deg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -35px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background-color: #d64d90;
+  color: #ffffff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background-color: #89d439;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background-color: #fefbf8;
+  color: #ffffff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background-color: #ffe1a5;
+  color: #ffffff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background-color: #9f571f;
+  color: #ffffff;
+}
+
+.divaImg {
+  transform: translateX(0px) skewX(0) !important;
+  background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero6.png");
+}
+
+.genjiImg {
+  transform: translateX(0px) skewX(0) !important;
+  background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero9.png");
+}
+
+.merciImg {
+  transform: translateX(0px) skewX(0) !important;
+  background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero15.png");
+}
+
+.tracerImg {
+  transform: translateX(0px) skewX(0) !important;
+  background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero27.png");
+}
+
+.cutieImg {
+  transform: translateX(0px) skewX(0) !important;
+  background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero30.png");
+} */
+
+/* backup button
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button.select-btn {
+  margin-top: px;
+  position: relative;
+  top: 30px;
+  left: 46%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Merienda', 'Handlee', cursive;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 1em 2em;
+  border-radius: 50%;
+  background: #e3e2ec;
+  box-shadow: 0 2px 2px #fff7d6;
+  transform-style: preserve-3d;
+  transition: all 100ms cubic-bezier(0, 0, 1, 1);
+  box-sizing: border-box;
+}
+button.select-btn::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: #a9a2db;
+  border-radius: inherit;
+  box-shadow: 0 0 2px #c7c3e9, 0 0.5em 0 0 #6a60a9;
+  transform: translate3d(0, 0.5em, -1em);
+  transition: all 100ms cubic-bezier(0, 0, 1, 1);
+}
+
+button.select-btn:hover {
+  background: #fff7d6;
+  transform: translate(0, 0.375em);
+}
+
+button.select-btn:hover::before {
+  transform: translate3d(0, 0.5em, -1em);
+}
+
+button.select-btn:active {
+  transform: translate(0em, 0.5em);
+}
+
+button.select-btn:active::before {
+  transform: translate3d(0, 0, -1em);
+
+  box-shadow: 0 0 0 2px #6a60a9, 0 0.25em 0 0 #6a60a9;
+} */
+
+/* .btn-section .background {
+  position: absolute;
+  top: 20px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #000;
+} */
+
+/* .btn-section .select-btn {
+  position: relative;
+  top: 30px;
+  left: 47.5%;
+  width: 100px;
+  height: 100px;
+  font-size: 20px;
+  border-radius: 50%;
+  font-weight: 700;
+  text-shadow: ;
+  border: none;
+  background-color: #f24437;
+  box-shadow: 4.5px 5px #97271f;
+  /* box-shadow: 1.5px 2px 0 0 darken(#ffeb5d, 40%),
+    2px 10px 0 0 darken(#ffeb5d, 40%);
+
+  @keyframes press {
+    50% {
+      box-shadow: 0px 0px 0 0 darken(#ffeb5d, 40%),
+        0px 0px 0 0 darken(#ffeb5d, 40%);
+      transform: translateY(10px);
+    }
+  }
+} */
