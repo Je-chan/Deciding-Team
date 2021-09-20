@@ -1,32 +1,11 @@
-# Overwatch hero selector example
+# 스터디 그룹 팀 나누기
 
-오버워치 영웅 선택 화면 예제!
+## 기존의 overwatch charater selector 를 응용
 
-[DEMO](https://practical-bartik-a2000a.netlify.app/)
+1. main.js 는 완전히 새롭게 추가한 항목
+2. 이미지와 members 객체의 name 은 상황에 맞게 조절할 예정
 
-## SCSS 리팩토링 버전
+## 리팩토링 과제 (과제 해낼시 commit message로 refactoring [num] clear)
 
-https://github.com/ParkYoungWoong/overwatch-hero-selector-vanilla/tree/refactoring-scss
-
-## Image url
-
-#### Characters
-
-이미지 이름에 숫자를 확인하세요!
-`hero1.png`~`hero32.png`
-
-```url
-https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/hero1.png
-```
-
-#### Overwatch logo
-
-```url
-https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/logo_overwatch.png
-```
-
-#### Background
-
-```url
-https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/bg.jpg
-```
+1. React 컴포넌트 구분처럼 관심사 분리로 js 파일 분리하기
+2. Promise와 관련된 코드를 조금더 간편하게 사용하기
