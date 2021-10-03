@@ -1,47 +1,47 @@
 let members = [
   {
     id: 1,
-    name: "가",
+    name: "선빈님",
   },
   {
     id: 2,
-    name: "나",
+    name: "웅진님",
   },
   {
     id: 3,
-    name: "다",
+    name: "연진님",
   },
   {
     id: 4,
-    name: "라",
+    name: "예찬님",
   },
   {
     id: 5,
-    name: "마",
+    name: "종하님",
   },
   {
     id: 6,
-    name: "바",
+    name: "승훈님",
   },
   {
     id: 7,
-    name: "사",
+    name: "예지님",
   },
   {
     id: 8,
-    name: "아",
+    name: "재현님",
   },
   {
     id: 9,
-    name: "자",
+    name: "재원님",
   },
   {
     id: 10,
-    name: "차",
+    name: "태규님",
   },
   {
     id: 11,
-    name: "카",
+    name: "민환님",
   },
 ];
 
@@ -55,7 +55,7 @@ let twoHosts = new Array(hosts.length).fill(null);
 //* DIV > IMG (SELECT)
 for (let i = 0; i < members.length; i++) {
   let elDiv = document.createElement("div");
-  let elImg = document.createElement("img");
+  let elImg = document.createElement("img");  
 
   elDiv.classList.add("developer", `developer${[i]}`, "list");
   elImg.setAttribute("src", `./images/hero${members[i].id}.png`);
@@ -109,7 +109,6 @@ function onClickHandler(e) {
 
 function deleteHandler(e) {
   const picked = document.querySelectorAll(".picked");
-  console.log(picked);
   if (e.target.classList[1] === "delete") {
     for (let i = hosts.length - 1; i >= 0; i--) {
       if (hosts[i].children.length !== 0) {
@@ -223,7 +222,6 @@ function popDeleteDiv() {
       if (count === 6) {
         //* DIVIDE
         withoutHost = withoutHost.sort(() => Math.random() - Math.random());
-        console.log(withoutHost);
         clearInterval(interval);
         resolve(true);
       }
@@ -268,7 +266,7 @@ function joinTeam() {
           elImg.setAttribute("alt", selection.alt);
           elImg2.setAttribute("src", selection.src);
           elImg2.setAttribute("alt", selection.alt);
-          let copied = elImg;
+          // let copied = elImg; 이렇게 해봤는데 안 되더라.
           if (i % 2 === 0) {
             lists[j].style.backgroundColor = "red";
             buttonBack.style.backgroundColor = "red";
