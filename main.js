@@ -5,7 +5,7 @@ let members = [
   },
   {
     id: 2,
-    name: "웅진님",
+    name: "창환님",
   },
   {
     id: 3,
@@ -49,19 +49,28 @@ let withoutHost = [...members];
 
 const developers = document.querySelector(".developers");
 const hosts = document.querySelectorAll(".host");
+const hostsName = document.querySelectorAll(".host-name");
 
 let twoHosts = new Array(hosts.length).fill(null);
 
 //* DIV > IMG (SELECT)
 for (let i = 0; i < members.length; i++) {
   let elDiv = document.createElement("div");
-  let elImg = document.createElement("img");  
+  let elWrap = document.createElement("div");
+  let elName = document.createElement("div");
+  let elImg = document.createElement("img");
 
   elDiv.classList.add("developer", `developer${[i]}`, "list");
-  elImg.setAttribute("src", `./images/hero${members[i].id}.png`);
+  elWrap.classList.add("wrap");
+  elName.classList.add("name", "hidden");
+  elName.textContent = members[i].name;
+
+  elImg.setAttribute("src", `./images/member${members[i].id}.png`);
   elImg.setAttribute("alt", `${members[i].name}`);
 
-  developers.appendChild(elDiv);
+  developers.appendChild(elWrap);
+  elWrap.appendChild(elDiv);
+  elWrap.appendChild(elName);
   elDiv.appendChild(elImg);
 
   document
@@ -70,6 +79,7 @@ for (let i = 0; i < members.length; i++) {
 }
 
 //* DIV & IMG onClick EVENT Handler / add Img
+
 function onClickHandler(e) {
   if (
     twoHosts.findIndex((el) => el !== null && el.name === e.target.alt) !==
@@ -94,9 +104,12 @@ function onClickHandler(e) {
   if (index === -1) return;
 
   for (let i = 0; i < hosts.length; i++) {
+    console.log(hostsName);
     if (hosts[i].children.length === 0) {
       elImg.addEventListener("click", (e) => deleteHandler(e));
       hosts[i].classList.add("on");
+      hosts[i].style.backgroundColor = i === 0 ? "#EED6E0" : "#ABD9E5";
+      hostsName[i].textContent = elImg.alt + " 팀";
       twoHosts.splice(i, 1, withoutHost.splice(index, 1)[0]);
       return hosts[i].appendChild(elImg);
     }
@@ -121,6 +134,8 @@ function deleteHandler(e) {
 
         hosts[i].classList.remove("on");
         hosts[i].removeChild(hosts[i].firstChild);
+        hosts[i].style.backgroundColor = "#555";
+        hostsName[i].textContent = "";
         break;
       }
     }
@@ -135,6 +150,8 @@ function deleteHandler(e) {
     );
 
     withoutHost.push(twoHosts.splice(removed, 1, null)[0]);
+    e.target.parentNode.style.backgroundColor = "#555";
+    e.target.parentNode.parentNode.children[1].textContent = "";
     e.target.parentNode.classList.remove("on");
     e.target.parentNode.removeChild(e.target);
   }
@@ -153,17 +170,26 @@ let membersWithoutHost = members.length - hosts.length;
 
 for (let i = 0; i < membersWithoutHost; i++) {
   const elDiv = document.createElement("div");
+  const elWrap = document.createElement("div");
+  const elName = document.createElement("div");
+
   if (i < Math.ceil(membersWithoutHost / 2)) {
     elDiv.classList.add("developer", "team1-member", `members${i}`);
-    team1Member.appendChild(elDiv);
+    elName.classList.add("name", "team1-name");
+    team1Member.appendChild(elWrap);
+    elWrap.appendChild(elDiv);
   } else {
     elDiv.classList.add(
       "developer",
       "team2-member",
       `members${i - Math.ceil(membersWithoutHost / 2)}`
     );
-    team2Member.appendChild(elDiv);
+    elName.classList.add("name", "team2-name");
+    team2Member.appendChild(elWrap);
+    elWrap.appendChild(elDiv);
   }
+
+  elWrap.appendChild(elName);
 }
 
 //* GET TEAM MEMBER
@@ -240,7 +266,9 @@ function popDeleteDiv() {
 }
 
 const team1MemberList = document.querySelectorAll(".team1-member");
+const team1MemberName = document.querySelectorAll(".team1-name");
 const team2MemberList = document.querySelectorAll(".team2-member");
+const team2MemberName = document.querySelectorAll(".team2-name");
 
 function joinTeam() {
   return new Promise((resolve, reject) => {
@@ -256,10 +284,12 @@ function joinTeam() {
       let member = withoutHost[i];
       const elImg = document.createElement("img");
       const elImg2 = document.createElement("img");
+
       for (let j = 0; j < lists.length; j++) {
         if (buttonBack.children.length !== 0) {
           buttonBack.removeChild(buttonBack.children[0]);
         }
+
         if (member.name === lists[j].children[0].alt) {
           let selection = lists[j].children[0];
           elImg.setAttribute("src", selection.src);
@@ -267,27 +297,33 @@ function joinTeam() {
           elImg2.setAttribute("src", selection.src);
           elImg2.setAttribute("alt", selection.alt);
           // let copied = elImg; 이렇게 해봤는데 안 되더라.
+
           if (i % 2 === 0) {
-            lists[j].style.backgroundColor = "red";
-            buttonBack.style.backgroundColor = "red";
+            lists[j].style.backgroundColor = "#EED6E0";
+            buttonBack.style.backgroundColor = "#EED6E0";
             buttonBack.style.transition = "none";
-            team1MemberList[i / 2].style.backgroundColor = "red";
+            team1MemberList[i / 2].style.backgroundColor = "#EED6E0";
             team1MemberList[i / 2].style.transform = "none";
             buttonBack.appendChild(elImg2);
             team1MemberList[i / 2].appendChild(elImg);
+            team1MemberName[i / 2].textContent = selection.alt;
             break;
           } else if (i % 2 === 1) {
-            lists[j].style.backgroundColor = "blue";
-            buttonBack.style.backgroundColor = "blue";
+            lists[j].style.backgroundColor = "#ABD9E5";
+            buttonBack.style.backgroundColor = "#ABD9E5";
             buttonBack.style.transition = "none";
             buttonBack.appendChild(elImg2);
             team2MemberList[parseInt((i + 1) / 2) - 1].style.backgroundColor =
-              "blue";
+              "#ABD9E5";
             team2MemberList[parseInt((i + 1) / 2) - 1].style.transform = "none";
             team2MemberList[parseInt((i + 1) / 2) - 1].appendChild(elImg);
+            team2MemberName[parseInt((i + 1) / 2) - 1].textContent =
+              selection.alt;
+
             break;
           }
         }
+
         if (i === withoutHost.length - hosts.length + 1) {
           clearInterval(interval);
           resolve(true);

@@ -1,9 +1,18 @@
+@font-face {
+  font-family: "BMHANNAPro";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   height: 100vh;
-  background-image: url('https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/bg.jpg');
+  background-image: url("https://raw.githubusercontent.com/ParkYoungWoong/overwatch-hero-selector-vanilla/master/images/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-family: BMHANNAPro, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 img {
@@ -25,9 +34,10 @@ img {
   margin: 0 auto;
   padding: 40px 20px;
 }
+
 .developer {
   width: 100px;
-  height: 110px;
+  height: 150px;
   margin: 4px;
   border: 3px solid #fff;
   border-radius: 10px;
@@ -35,8 +45,16 @@ img {
   overflow: hidden;
   background-color: #555;
   transform: skewX(-14deg);
-  transition: transform 0.1s, background-color 0.6s;
+  transition: transform 0.1s, background-color 0.2s;
   display: flex;
+}
+
+.wrap {
+  position: relative;
+}
+
+.wrap:hover {
+  z-index: 1;
 }
 
 .developer img {
@@ -59,6 +77,38 @@ img {
 .developer.list.picked {
   background-color: #fff !important;
   border: 3px solid #555 !important;
+}
+
+.wrap .name {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 5%;
+  left: 17%;
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 4px;
+  background-color: #ff9c00;
+  box-shadow: 0 2px 3px #fff;
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrap .name::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 47%;
+  transform: rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background-color: #ff9c00;
+  z-index: 0;
+}
+
+.wrap:hover .name {
+  opacity: 1;
+  top: -30%;
 }
 
 .on {
@@ -98,7 +148,7 @@ button.select-btn {
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: 'Merienda', 'Handlee', cursive;
+  /* font-family: "Merienda", "Handlee", cursive; */
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
@@ -155,6 +205,7 @@ button.select-btn:active {
 
 .select-wrapper .team .team1-host,
 .select-wrapper .team .team2-host {
+  position: relative;
   display: flex;
   justify-content: center;
 }
@@ -163,6 +214,22 @@ button.select-btn:active {
   width: 10rem;
   height: 12rem;
   border: 3px solid #eee;
+}
+
+.select-wrapper .team .host-name {
+  position: absolute;
+  top: -40px;
+  font-size: 38px;
+}
+
+.select-wrapper .team .host1-name {
+  color: #eed6e0;
+  text-shadow: 0 0 9px rgb(255, 10, 10);
+}
+
+.select-wrapper .team .host2-name {
+  color: #abd9e5;
+  text-shadow: 0 0 9px rgb(2, 70, 218);
 }
 
 .select-wrapper .team .member {
@@ -181,6 +248,21 @@ button.select-btn:active {
   transform: none;
 }
 
+.select-wrapper .team .member .name {
+  text-align: center;
+  font-size: 24px;
+}
+
+.select-wrapper .team .member .team1-name {
+  color: #eed6e0;
+  text-shadow: 0 0 9px rgb(255, 10, 10);
+}
+
+.select-wrapper .team .member .team2-name {
+  color: #abd9e5;
+  text-shadow: 0 0 9px rgb(2, 70, 218);
+}
+
 /** 로고 **/
 .logo {
   max-width: 300px;
@@ -190,4 +272,3 @@ button.select-btn:active {
 .logo img {
   width: 100%;
 }
-
