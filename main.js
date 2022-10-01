@@ -43,6 +43,10 @@ let members = [
     id: 11,
     name: "민환님",
   },
+  {
+    id: 12,
+    name: "진혁님",
+  },
 ];
 
 let withoutHost = [...members];
